@@ -45,6 +45,7 @@ mv-logs:
 	$(eval when := $(shell date "+%H-%M-%S-%Y-%m-%d"))
 	mkdir -p ~/old-logs/nginx/
 	mkdir -p ~/old-logs/mysql/
+	sudo touch $(NGINX_LOG) $(DB_SLOW_LOG)
 	sudo mv -f $(NGINX_LOG) ~/old-logs/nginx/access.log-rotated-at-$(when)
 	sudo mv -f $(DB_SLOW_LOG) ~/old-logs/mysql/slow-query-log-rotated-at-$(when)
 
